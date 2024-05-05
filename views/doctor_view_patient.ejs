@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="/css/book_appointment.css">
+<link rel="stylesheet" type="text/css" href="<%=assetPath('css/book_appointment.css')%>">
 <div class="main-container">
     <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -98,7 +98,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <img src="/images/wrong.png" data-toggle="modal"
+                                            <img src="<%= assetPath('images/wrong.png') %>" data-toggle="modal"
                                                 data-target="#myModal<%=i%>" class="img-clickable">
                                             <% } else{%>
                                                 -
@@ -107,7 +107,7 @@
                                     <td>
                                         <% if(!info.confirm){%>
                                             <a href="/appointment/confirm/<%= info.id %>"><img
-                                                    src="/images/correct.png"></a>
+                                                    src="<%= assetPath('images/correct.png') %>"></a>
                                             <% }else{ %>
                                                 Confirmed!!
                                                 <% } %>
@@ -158,15 +158,15 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <img src="/images/edit.png" data-toggle="modal" data-target="#MyModal<%=i%>"
-                                                class="img-clickable">
+                                            <img src="<%= assetPath('images/edit.png') %>" data-toggle="modal"
+                                                data-target="#MyModal<%=i%>" class="img-clickable">
                                             <% } else{%>
                                                 -
                                                 <% } %>
                                     </td>
                                     <td>
                                         <a href="/appointment/destroy-patient/<%= info.id %>"><img
-                                                src="/images/delete.png"></a>
+                                                src="<%= assetPath('images/delete.png') %>"></a>
                                     </td>
                                     <% } else{%>
                                         <td>

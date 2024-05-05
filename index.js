@@ -7,9 +7,12 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors')
 const flash = require('connect-flash');
 const flashMware = require('./config/middleware');
+const logger = require('morgan');
 const env = require('./config/environment');
+const sassMiddleware = require('node-sass-middleware');
 const path = require('path');
 app.use(cors());
+require('./config/view_helpers')(app);
 
 // Used for session cookie
 const session = require('express-session'); // requiring session
@@ -18,10 +21,22 @@ const passportLocal = require('./config/passport-local-strategy');
 const MongoStore = require('connect-mongo')(session);
 
 
+if (env.name == 'development') {
+
+    app.use(sassMiddleware({
+        src: './assets/scss',
+        dest: './assets/css',
+        debug: true,
+        outputStyle: 'extended',
+        prefix: '/css'
+    }));
+}
+console.log(env.name);
 // enable the parsing of URL-encoded data sent from a web form or as query parameters in the URL
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cookieParser());
+app.use(logger(env.morgan.mode, env.morgan.options));
 
 // Using aseets static file
 app.use(express.static(env.asset_path));

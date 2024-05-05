@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="/css/staff_signup.css">
+<link rel="stylesheet" type="text/css" href="<%=assetPath('css/staff_signup.css')%>">
 <div class="main-container">
     <% if(locals.user){ %>
         <div class="main-container">
@@ -213,11 +213,11 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <img src="/images/edit.png" data-toggle="modal"
+                                                    <img src="<%= assetPath('images/edit.png') %>" data-toggle="modal"
                                                         data-target="#myModal<%=i%>" class="img-clickable">
                                                 </td>
                                                 <td><a href="/admin/doctor-destroy/<%= info.id %>"><img
-                                                            src="/images/delete.png"></a></td>
+                                                            src="<%= assetPath('images/delete.png') %>"></a></td>
                                             </tr>
                                             <% } %>
                                 </tbody>

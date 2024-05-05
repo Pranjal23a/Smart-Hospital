@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="/css/admin_profile.css">
+<link rel="stylesheet" type="text/css" href="<%=assetPath('css/admin_profile.css')%>">
 <div class="main-container">
     <!-- <div class="title-edit">
         <h1>
@@ -106,7 +106,9 @@
                                             <%= new Date(info.exp_date).toLocaleDateString('en-US', { year: 'numeric' ,
                                                 month: 'short' , day: 'numeric' }) %>
                                         </td>
-                                        <td><a href="/admin/destroy/<%= info.id %>"><img src="/images/delete.png"></a>
+                                        <td><a href="/admin/destroy/<%= info.id %>"><img
+                                                    src="<%= assetPath('images/delete.png') %>"></a></td>
+
                                         </td>
                                     </tr>
                                     <%i++ } %>
